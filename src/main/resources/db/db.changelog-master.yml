@@ -1,0 +1,15 @@
+# https://docsstage.liquibase.com/concepts/basic/changelog.html
+databaseChangeLog:
+  - preConditions:
+    - onFail: HALT
+    # https://www.liquibase.org/get-started/databases
+    # https://docs.liquibase.com/start/tutorials/home.html
+    - dbms:
+        type: mysql
+  # changelog files
+  - include:
+      file: changelog/02_create_books.sql
+      relativeToChangelogFile: true
+  - include:
+      file: changelog/03_insert_books.sql
+      relativeToChangelogFile: true
